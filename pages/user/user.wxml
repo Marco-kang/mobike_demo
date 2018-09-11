@@ -1,0 +1,5 @@
+<!--pages/user/user.wxml-->
+<text>pages/user/user.wxml</text>
+<view>
+  个人中心页面
+</view>

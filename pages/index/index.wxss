@@ -1,0 +1,62 @@
+/**index.wxss**/
+.map_box {
+  width: 100%;
+  height: 100vh;
+  overflow: height;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  /* margin-top: -25px; */
+}
+
+.opt {
+  position: absolute;
+  right: 20px;
+  bottom: 70px;
+}
+.btn {
+  margin-top: 20px;
+  padding: 0;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  line-height: 60rpx;
+  border: 1rpx solid #ccc;
+}
+
+.scan {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 46px;
+}
+.scan_btn {
+  border-radius: 0px;
+  background: #333;
+  color: #fff;
+}
+
+.center_img {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 30px;
+  margin-top: -30px;
+  margin-left: -9px;
+}
+
+.img_btn {
+  position: absolute;
+  left: 20px;
+  bottom: 70px;
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  margin-top: 20px;
+}
