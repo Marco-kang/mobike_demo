@@ -1,18 +1,17 @@
 <!-- ÷//////index.wxml -->
-<view class='map_box' >
-  <map class='map' id='map' show-location='true' latitude='{{latitude}}' longitude='{{longitude}}' scale='{{scale}}' markers='{{markers}}' bindtap='onMap' bindregionchange='mapChange' bindmarkertap='toVisit' polyline='{{polyline}}'>
+<view class='map_box'>
+  <map class='map' id='map' show-location='true' latitude='{{ latitude }}' longitude='{{ longitude }}' scale='{{ scale }}' markers='{{ markers }}' bindtap='onMap' bindregionchange='mapChange' bindmarkertap='toVisit' polyline='{{ polyline }}'>
     <cover-view class='opt'>
       <button class='btn' bindtap='large'>+</button>
       <button class='btn' bindtap='small'>-</button>
     </cover-view>
-    <cover-image class='center_img' src='/images/point_in_map.png'></cover-image>
+    <cover-image class='center_img' src='/images/point_in_map.png' />
     <cover-view class='img_btn'>
-      <cover-image class='icon' src='/images/reset.png' bindtap='onReset'></cover-image>
-      <cover-image class='icon' src='/images/icon-user.png' bindtap='onUser'></cover-image>
+      <cover-image class='icon' src='/images/reset.png' bindtap='onReset' />
+      <cover-image class='icon' src='/images/icon-user.png' bindtap='onUser' />
     </cover-view>
     <cover-view class='scan'>
-    <button class='scan_btn' bindtap='onScan'>扫一扫</button>
+      <button class='scan_btn' bindtap='onScan'>扫一扫</button>
     </cover-view>
   </map>
 </view>
-

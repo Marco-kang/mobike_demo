@@ -1,5 +1,21 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<!-- pages/user/user.wxml -->
 <view>
-  个人中心页面
+  <view class="head_bg">
+    <!-- <image class="img_head" src="../../images/icon-heade.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+    <text class="user_name">12345678900</text> -->
+    <open-data class="img_head" type="userAvatarUrl"></open-data>
+    <open-data type="userNickName"></open-data>
+  </view>
+  <view class="user_money">
+    <text class="user_list__left">我的钱包</text>
+    <image class="user_list__right" src="../../images/arrow-right.png"></image>
+  </view>
+  <view class="user_coupon">
+    <text class="user_list__left">我的卡劵</text>
+    <image class="user_list__right" src="../../images/arrow-right.png"></image>
+  </view>
+  <view class="user_trip">
+    <text class="user_list__left">我的行程</text>
+    <image class="user_list__right" src="../../images/arrow-right.png"></image>
+  </view>
 </view>

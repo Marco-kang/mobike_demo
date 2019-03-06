@@ -1,7 +1,9 @@
 //index.js
 //获取应用实例
-let amapFile = require('../../libs/amap-wx.js'); 
-let myAmapFun = new amapFile.AMapWX({ key: 'e0c92f485397dc863b4cb831e87f05e5' });
+let amapFile = require('../../libs/amap-wx.js');
+let myAmapFun = new amapFile.AMapWX({
+  key: 'e0c92f485397dc863b4cb831e87f05e5'
+});
 
 const app = getApp()
 Page({
@@ -23,7 +25,7 @@ Page({
     var _this = this;
     wx.getLocation({
       type: 'gcj02',
-      success: function(res) {
+      success: function (res) {
         console.log(res);
         // _this.data.latitude = res.latitude;
         // _this.data.longitude = res.longitude;
@@ -34,7 +36,7 @@ Page({
         _this.createBike(res);
       },
     })
-    
+
   },
 
   /**
@@ -43,54 +45,54 @@ Page({
   onReady: function () {
     this.map = wx.createMapContext('map');
     // this.map.moveToLocation();
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   },
   /**
    * 放大
    */
-  large: function(e) {
+  large: function (e) {
     this.data.scale > 18 ? this.data.scale = 18 : this.data.scale;
     this.setData({
       scale: this.data.scale + 1
@@ -108,7 +110,7 @@ Page({
   /**
    * 回到当前位置
    */
-  onReset: function() {
+  onReset: function () {
     this.map.moveToLocation();
   },
   /**
@@ -122,7 +124,7 @@ Page({
   /**
    * 点击地图
    */
-  onMap: function(e) {
+  onMap: function (e) {
     // console.log(this.data.latitude, this.data.longitude);
     // this.setData({
     //   latitude: this.data.latitude1,
@@ -133,17 +135,16 @@ Page({
   /**
    * 地图视野发生变化
    */
-  mapChange: function(e) {
+  mapChange: function (e) {
     this.data.markers = [];
     this.setData({
       polyline: []
     });
     var _this = this;
     console.log('视野发生变化了', e);
-    if(e.type == 'begin') {
-    }else if (e.type == 'end') {
+    if (e.type == 'begin') {} else if (e.type == 'end') {
       this.map.getCenterLocation({
-        success: (res)=> {
+        success: (res) => {
           console.log(res);
           _this.createBike(res);
         }
@@ -153,9 +154,9 @@ Page({
   /**
    * 创建单车
    */
-  createBike: function(res) {
+  createBike: function (res) {
     var len = Math.ceil(Math.random() * 20);
-    for(var i = 0; i < len; i++) {
+    for (var i = 0; i < len; i++) {
       var bike = {
         id: 0,
         latitude: 0,
@@ -181,12 +182,12 @@ Page({
   /**
    * 计算最近的单车
    */
-  recently: function(res) {
+  recently: function (res) {
     console.log()
     let bikeArr = this.data.markers;
     let distanceArr = [];
     let minIndex = 0;
-    for(let i = 0; i < bikeArr.length; i++) {
+    for (let i = 0; i < bikeArr.length; i++) {
       let lat = bikeArr[i].latitude;
       let lon = bikeArr[i].longitude;
       //计算距离
@@ -196,7 +197,7 @@ Page({
     // 从距离数组中找出最小值
     let min = distanceArr[0];
     for (let i = 0; i < distanceArr.length; i++) {
-      if(distanceArr[i] < min) {
+      if (distanceArr[i] < min) {
         min = distanceArr[i];
         minIndex = i;
       }
@@ -218,14 +219,14 @@ Page({
   /**
    * 规划路线
    */
-  toVisit: function(e) {
+  toVisit: function (e) {
     let that = this;
     let id = e.markerId;
     let target = this.data.markers[id];
     this.map.getCenterLocation({
       success: (res) => {
-        console.log(res.longitude, res.latitude);
-        console.log(target.longitude, target.latitude);
+        // console.log(res.longitude, res.latitude);
+        // console.log(target.longitude, target.latitude);
         myAmapFun.getWalkingRoute({
           origin: `${res.longitude},${res.latitude}`,
           destination: `${target.longitude},${target.latitude}`,
@@ -251,7 +252,7 @@ Page({
               }]
             });
           },
-          fail: function(info) {
+          fail: function (info) {
             console.log('err:', info);
           }
         })
@@ -261,9 +262,9 @@ Page({
   /**
    * 扫一扫
    */
-  onScan: function(e) {
+  onScan: function (e) {
     wx.scanCode({
-      success: (res)=> {
+      success: (res) => {
         console.log('成功：', res);
       }
     })

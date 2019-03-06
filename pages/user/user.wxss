@@ -1,1 +1,47 @@
 /* pages/user/user.wxss */
+.head_bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 180px;
+  font-size: 16px;
+  background: #f5f5f5;
+}
+
+.img_head {
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  /* padding: 10px;
+  background: #db0f0f; */
+  /* border-radius: 50%; */
+}
+
+.user_name {
+  margin-top: 10px;
+  width: 100px;
+}
+
+.user_money {
+  margin-top: 30px;
+}
+
+.user_money,
+.user_coupon,
+.user_trip {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.user_list__left {
+  flex: 9;
+}
+
+.user_list__right {
+  width: 20px;
+  height: 15px;
+}
